@@ -66,7 +66,7 @@ O fluxo do sistema é o seguinte:
 
 1. O Python captura o áudio da saída do computador.
 2. O áudio passa por um filtro para destacar graves e médio-graves.
-3. O algoritmo identifica o “ataque” da batida.
+3. O algoritmo identifica o "ataque" da batida.
 4. A intensidade detectada é convertida em um valor serial.
 5. O Arduino recebe esse valor.
 6. O motor é acionado proporcionalmente, com suavização no tempo.
@@ -103,7 +103,7 @@ seu-projeto/
 ## Requisitos
 
 ### No computador
-- Python **3.9+**
+- Python **3.9+** (para usar o código) **OU** Windows 10+ (para usar o executável)
 - Bibliotecas Python:
   - `numpy`
   - `soundcard`
@@ -123,20 +123,22 @@ seu-projeto/
 
 ## Instalação
 
-### 1. Clonar o repositório
+### Opção 1: Usar o código Python
+
+#### 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/SEU_USUARIO_GITHUB/SEU_REPOSITORIO.git
 cd SEU_REPOSITORIO
 ```
 
-### 2. Criar ambiente virtual opcional
+#### 2. Criar ambiente virtual opcional
 
 ```bash
 python -m venv venv
 ```
 
-### 3. Ativar o ambiente virtual
+#### 3. Ativar o ambiente virtual
 
 **Windows:**
 ```bash
@@ -148,17 +150,26 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 4. Instalar as bibliotecas Python
+#### 4. Instalar as bibliotecas Python
 
 ```bash
 pip install numpy soundcard pyserial scipy
 ```
 
-### 5. Ou usar `requirements.txt`
+#### 5. Ou usar `requirements.txt`
 
 ```bash
 pip install -r requirements.txt
 ```
+
+### Opção 2: Usar o executável (em breve)
+
+Quando o executável estiver disponível:
+
+1. Baixe o arquivo `.exe` da seção de [Releases](https://github.com/SEU_USUARIO_GITHUB/SEU_REPOSITORIO/releases)
+2. Coloque em uma pasta de sua preferência
+3. Clique duas vezes para executar
+4. **Não há necessidade de instalar Python ou qualquer dependência**
 
 ---
 
@@ -178,14 +189,21 @@ pip install -r requirements.txt
 
 ### 3. Executar o script Python
 
+#### Se estiver usando o **código Python**:
+
 ```bash
 python detector_batida.py
 ```
 
+#### Se estiver usando o **executável**:
+
+- Clique duas vezes no arquivo `detector_batida.exe`
+- A janela do programa abrirá automaticamente
+
 ### 4. Iniciar a reprodução de áudio
 
 - Dê play em uma música no computador
-- O script vai analisar o áudio da saída padrão
+- O script/executável vai analisar o áudio da saída padrão
 - Quando uma batida for detectada, o Arduino receberá o valor e acionará o motor
 
 ---
@@ -278,7 +296,7 @@ Você pode ajustar:
 - Ajuste automático de limiar
 - Interface gráfica para calibração
 - Salvamento de configurações em arquivo
-- Exportação para executável `.exe`
+- ✅ Exportação para executável `.exe` (em desenvolvimento)
 - Suporte a mais tipos de motor e resposta tátil
 
 ---
